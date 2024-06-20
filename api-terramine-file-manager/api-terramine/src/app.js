@@ -10,7 +10,15 @@ const port = 3000;
 app.use(bodyParser.json());
 
 // MongoDB connection
-mongoose.connect('mongodb://51.120.0.221:27017/TerraMineDB_V1', { useNewUrlParser: true, useUnifiedTopology: true });
+//mongoose.connect('mongodb://51.120.0.221:27017/TerraMineDB_V1', { useNewUrlParser: true, useUnifiedTopology: true });
+// MongoDB connection
+mongoose.connect("mongodb+srv://mongodb:mongodb@cluster0.0n8u2uc.mongodb.net/TerraMineDB?retryWrites=true&w=majority&appName=Cluster0")
+.then(() => {
+    console.log('Connected to MongoDB Atlas');
+})
+.catch((err) => {
+    console.error('Error connecting to MongoDB Atlas', err);
+});
 
 // Routes
 const documentRoutes = require('./routes/documentRoutes');
