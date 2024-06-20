@@ -1,0 +1,19 @@
+/* Estilos para la auditoría de actividades */
+.audit {
+  padding: 2em;
+}
+.audit form {
+  display: flex;
+  flex-direction: column;
+}
+.audit label {
+  margin: 0.5em 0;
+}
+.audit ul {
+  list-style: none;
+  padding: 0;
+}
+.audit li {
+  cursor: pointer;
+  margin: 0.5em 0;
+}

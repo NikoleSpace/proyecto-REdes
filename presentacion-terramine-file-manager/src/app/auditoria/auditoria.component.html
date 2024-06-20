@@ -1,1 +1,35 @@
-<p>auditoria works!</p>
+<div class="audit">
+  <h2>Auditoría de Actividades</h2>
+  <form (ngSubmit)="searchActivities()">
+    <label for="from-date">Desde:</label>
+    <input type="date" id="from-date" [(ngModel)]="fromDate" name="fromDate" required>
+
+    <label for="to-date">Hasta:</label>
+    <input type="date" id="to-date" [(ngModel)]="toDate" name="toDate" required>
+
+    <label for="employee">Empleado:</label>
+    <input type="text" id="employee" [(ngModel)]="employee" name="employee">
+
+    <label for="action">Acción:</label>
+    <input type="text" id="action" [(ngModel)]="action" name="action">
+
+    <button type="submit">Buscar</button>
+  </form>
+
+  <div *ngIf="activities.length > 0">
+    <h3>Resultados:</h3>
+    <ul>
+      <li *ngFor="let activity of activities" (click)="viewDetails(activity)">
+        {{ activity.date }} - {{ activity.employee }} - {{ activity.action }} - "{{ activity.description }}"
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="selectedActivity">
+    <h3>Detalles de la Actividad:</h3>
+    <p>Fecha: {{ selectedActivity.date }}</p>
+    <p>Empleado: {{ selectedActivity.employee }}</p>
+    <p>Acción: {{ selectedActivity.action }}</p>
+    <p>Descripción: {{ selectedActivity.description }}</p>
+  </div>
+</div>

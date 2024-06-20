@@ -1,5 +1,91 @@
-<div class="container">
-    <h2>Gestión de Documentos</h2>
-    <!-- Aquí va la lógica para gestionar documentos -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Documentos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="documentos.component.css">
+</head>
+<body>
+<!-- Encabezado -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img class="logo-image" src="assets/img/logoencabezado.png" alt="Logo de TeraMine"></a>
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">INICIO</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/documentos" routerLinkActive="active">MIS ARCHIVOS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/notificaciones" routerLinkActive="active" >NOTIFICACIONES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/mensajes" routerLinkActive="active" >MENSAJES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/perfil" routerLinkActive="active" >USUARIO</a>
+      </li>
+    </ul>
   </div>
-  
+</nav>
+
+<div class="container mt-4">
+  <!-- Barra de búsqueda -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Buscar documentos" aria-label="Buscar documentos">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">Buscar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary" (click)="crearDocumento()">Crear +</button>
+    </div>
+  </div>
+
+  <!-- Documentos -->
+  <div class="documentos-container">
+    <h2>Gestión de Documentos</h2>
+    <ul class="list-group">
+      <li *ngFor="let documento of documentos" class="list-group-item">
+        <h3>{{ documento.nombre }}</h3>
+        <p>{{ documento.descripcion }}</p>
+        <div class="btn-group" role="group">
+          <button class="btn btn-info" (click)="verDocumento(documento)">Ver</button>
+          <button class="btn btn-warning" (click)="modificarDocumento(documento)">Modificar</button>
+          <button class="btn btn-danger" (click)="eliminarDocumento(documento)">Eliminar</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<footer class="footer mt-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <a class="navbar-brand" href="#"><img class="logo-image" src="assets/img/logoencabezado.png" alt="Logo de TeraMine"></a>
+      </div>
+      <div class="col-md-4">
+        <p>Teléfono: 956 034182</p>
+        <p>Correo electrónico: infoteramine.com</p>
+      </div>
+      <div class="col-md-4">
+        <h4>Redes Sociales</h4>
+        <div class="social-icons">
+          <a href="#" title="Enlace a Facebook"><img src="assets/img/facebook.png" alt="Facebook"></a>
+          <a href="#" title="Enlace a Twitter"><img src="assets/img/twitter.png" alt="Twitter"></a>
+          <a href="#" title="Enlace a Instagram"><img src="assets/img/instagram.png" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

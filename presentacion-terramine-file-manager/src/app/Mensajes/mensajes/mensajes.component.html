@@ -1,0 +1,14 @@
+<div class="container mt-3">
+  <h2>Mensajes</h2>
+  <div class="form-group">
+    <label for="nuevoMensaje">Nuevo Mensaje</label>
+    <textarea class="form-control" id="nuevoMensaje" [(ngModel)]="nuevoMensaje" placeholder="Escribe tu mensaje aquí"></textarea>
+    <button type="button" class="btn btn-primary mt-2" (click)="enviarMensaje()">Enviar</button>
+  </div>
+  <ul class="list-group mt-3">
+    <li class="list-group-item" *ngFor="let mensaje of mensajes">
+      {{ mensaje.texto }} - {{ mensaje.fecha }}
+      <button class="btn btn-link float-right" (click)="eliminarMensaje(mensaje)">Eliminar</button>
+    </li>
+  </ul>
+</div>

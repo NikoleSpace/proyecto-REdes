@@ -1,0 +1,8 @@
+/* Estilos para el panel principal */
+.dashboard {
+  padding: 2em;
+}
+.dashboard a {
+  display: block;
+  margin: 0.5em 0;
+}

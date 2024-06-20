@@ -1,0 +1,11 @@
+/* Estilos para la gestión de permisos */
+.permissions {
+  padding: 2em;
+}
+.permissions form {
+  display: flex;
+  flex-direction: column;
+}
+.permissions label {
+  margin: 0.5em 0;
+}

@@ -1,1 +1,21 @@
-<p>gestion-permisos works!</p>
+<div class="permissions">
+  <h2>Gestión de Permisos</h2>
+  <form (ngSubmit)="createRole()">
+    <label for="role-name">Nombre del Rol:</label>
+    <input type="text" id="role-name" [(ngModel)]="roleName" name="roleName" required>
+
+    <label for="role-description">Descripción:</label>
+    <input type="text" id="role-description" [(ngModel)]="roleDescription" name="roleDescription" required>
+
+    <div>
+      <label><input type="checkbox" [(ngModel)]="permissions.viewDocuments" name="viewDocuments"> Ver Documentos</label>
+      <label><input type="checkbox" [(ngModel)]="permissions.editDocuments" name="editDocuments"> Editar Documentos</label>
+      <label><input type="checkbox" [(ngModel)]="permissions.deleteDocuments" name="deleteDocuments"> Eliminar Documentos</label>
+      <label><input type="checkbox" [(ngModel)]="permissions.assignTasks" name="assignTasks"> Asignar Tareas</label>
+      <label><input type="checkbox" [(ngModel)]="permissions.registerMaintenances" name="registerMaintenances"> Registrar Mantenimientos</label>
+    </div>
+
+    <button type="submit">Guardar</button>
+  </form>
+  <p *ngIf="successMessage">{{ successMessage }}</p>
+</div>
