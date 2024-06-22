@@ -1,5 +1,7 @@
 const User = require('../models/userModel');
 const Area = require('../models/areaModel');
+const Branch = require('../models/branchModel')
+const Role = require('../models/roleModel')
 const bcrypt = require('bcrypt');
 
 exports.createUser = async (req, res) => {
@@ -9,6 +11,16 @@ exports.createUser = async (req, res) => {
     const area = await Area.findById(area_id);
     if (!area) {
       return res.status(400).json({ error: 'Invalid area ID: Area does not exist' });
+    }
+    // Verificar si el branch_id es válido
+    const branch = await Branch.findById(area_id);
+    if (!branch) {
+      return res.status(400).json({ error: 'Invalid branch ID: Branch does not exist' });
+    }
+    // Verificar si el role_id es válido
+    const role = await Role.findById(area_id);
+    if (!role) {
+      return res.status(400).json({ error: 'Invalid role ID: Role does not exist' });
     }
     // Encriptamos la contraseña antes de guardarla
     const saltRounds = 10; 
