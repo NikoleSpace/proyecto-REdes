@@ -1,10 +1,11 @@
+// controllers/documentController.js
 const Document = require('../models/documentModel');
 const User = require('../models/userModel');
 
 // Create a new document
 exports.createDocument = async (req, res) => {
   try {
-    const { name, description,creation_date, author_id,size, file   } = req.body;
+    const { name, description, creation_date, author_id, size, file, folder_path, folder_id } = req.body;
     const document = new Document({
       name,
       description,
@@ -12,9 +13,11 @@ exports.createDocument = async (req, res) => {
       author_id,
       size,
       file: {
-        data: Buffer.from(file, 'base64'), 
-        contentType: req.headers['content-type'] 
-      }
+        data: Buffer.from(file, 'base64'),
+        contentType: req.headers['content-type']
+      },
+      folder_path,
+      folder_id
     });
     await document.save();
     res.status(201).send(document);
@@ -40,8 +43,8 @@ exports.getDocumentById = async (req, res) => {
     if (!document) {
       return res.status(404).send();
     }
-    const base64File = document.file.data.toString('base64'); // Convert the Buffer to Base64
-    res.status(200).send({ ...document.toJSON(), file: base64File }); // Send the document with the file converted to Base64
+    const base64File = document.file.data.toString('base64');
+    res.status(200).send({ ...document.toJSON(), file: base64File });
   } catch (error) {
     res.status(400).send(error);
   }
@@ -50,14 +53,16 @@ exports.getDocumentById = async (req, res) => {
 // Update a document
 exports.updateDocument = async (req, res) => {
   try {
-    const { title, description, file } = req.body;
+    const { name, description, file, folder_path, folder_id } = req.body;
     const document = await Document.findByIdAndUpdate(req.params.id, {
-      title,
+      name,
       description,
       file: {
-        data: Buffer.from(file, 'base64'), // Convert the Base64 file to Buffer
-        contentType: req.headers['content-type'] // Get the content type from the request header
+        data: Buffer.from(file, 'base64'),
+        contentType: req.headers['content-type']
       },
+      folder_path,
+      folder_id,
       modification_date: Date.now()
     }, { new: true, runValidators: true });
     if (!document) {
@@ -82,11 +87,10 @@ exports.deleteDocument = async (req, res) => {
   }
 };
 
-
-// Create a new document
+// Create a new document by user
 exports.createDocumentByUser = async (req, res) => {
   try {
-    const { name, description,size, file} = req.body;
+    const { name, description, size, file, folder_path, folder_id } = req.body;
     const author_id = req.params.id;
     const user = await User.findById(author_id);
     if (!user) {
@@ -98,9 +102,11 @@ exports.createDocumentByUser = async (req, res) => {
       author_id,
       size,
       file: {
-        data: Buffer.from(file, 'base64'), 
-        contentType: req.headers['content-type'] 
-      }
+        data: Buffer.from(file, 'base64'),
+        contentType: req.headers['content-type']
+      },
+      folder_path,
+      folder_id
     });
     await document.save();
     res.status(201).send(document);
@@ -111,7 +117,6 @@ exports.createDocumentByUser = async (req, res) => {
 
 // Get all documents belonging to the user
 exports.getDocumentsByUser = async (req, res) => {
-    
   try {
     const author_id = req.params.id;
     const user = await User.findById(author_id);
