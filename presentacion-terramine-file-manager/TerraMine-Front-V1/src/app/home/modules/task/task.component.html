@@ -1,0 +1,60 @@
+<h1>Mis Tareas</h1>
+<div class="create-btn">
+    <button class="btn-doc btn-ex">
+        <div class="button-content">
+            <i class='bx bx-upload'></i>
+            <p>Crear Tareas</p>
+        </div>
+    </button>
+</div>
+<div class="bottom-data">
+    <div class="List_table">
+        <div class="header">
+            <i class='bx bx-receipt'></i>
+            <h3>Lista de Tareas</h3>
+            <i class='bx bx-filter'></i>
+            <i class='bx bx-search'></i>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripcion</th>
+                    <th>Fecha <br> inicio</th>
+                    <th>Fecha <br>Limite</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <ng-container>
+                        <td>Revisar documento ....</td>
+                        <td>
+                            <p>21/06/2024</p>
+                            <p>21:30</p>
+                        </td>
+                        <td>
+                            <p>30/06/2024</p>
+                            <p>21:30</p>
+                        </td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-doc" type="button" id="dropdownMenuButton" (click)="toggleDropdown($event)">
+                                    <i class="bx bx-dots-horizontal-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu" [class.show]="dropdownOpen" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Ver</a>
+                                    <a class="dropdown-item" href="#">Editar</a>
+                                    <a class="dropdown-item" href="#">Eliminar</a>
+                                    <a class="dropdown-item" href="#">Detalles</a>
+                                </div>
+
+                            </div>
+                        </td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

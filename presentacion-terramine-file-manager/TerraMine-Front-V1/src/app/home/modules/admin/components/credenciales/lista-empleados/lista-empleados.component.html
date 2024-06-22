@@ -1,0 +1,58 @@
+<div class="bottom-data">
+    <div class="List_table">
+        <div class="header">
+            <i class='bx bx-receipt'></i>
+            <h3>Lista de Empleados</h3>
+            <i class='bx bx-filter'></i>
+            <i class='bx bx-search'></i>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Nivel de <br> acceso</th>
+                        <th>Fecha <br> creación</th>
+                        <th>Último <br> acceso</th>
+                        <th>Fecha <br> finalizada</th>
+                        <th>Estado</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.nivel_acceso }}</td>
+                        <td>
+                            <p>{{ user.fecha_creacion | date: 'dd/MM/yyyy' }}</p>
+                            <p>{{ user.fecha_creacion | date: 'HH:mm' }}</p>
+                        </td>
+                        <td>
+                            <p>{{ user.ultimo_acceso | date: 'dd/MM/yyyy' }}</p>
+                            <p>{{ user.ultimo_acceso | date: 'HH:mm' }}</p>
+                        </td>
+                        <td>
+                            <p>{{ user.fecha_finalizacion | date: 'dd/MM/yyyy' }}</p>
+                            <p>{{ user.fecha_finalizacion | date: 'HH:mm' }}</p>
+                        </td>
+                        <td><span class="status {{ user.estado }}">{{ user.estado }}</span></td>
+                        <td>
+                            <div class="table-button-container">
+                                <button class="btn btn-doc dropdown-button"
+                                    id="dropdownMenuButton-{{ user._id }}"
+                                    (click)="toggleDropdown($event, 'dropdown-' + user._id)">
+                                    <i class="bx bx-dots-horizontal-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-content"
+                                    [class.show]="dropdowns['dropdown-' + user._id]">
+                                    <a class="dropdown-item">Editar</a>
+                                    <a class="dropdown-item" (click)="deleteUser(user._id)">Eliminar</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

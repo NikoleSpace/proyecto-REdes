@@ -1,0 +1,50 @@
+<div class="bottom-data">
+    <div class="List_table">
+        <div class="header">
+            <i class='bx bx-receipt'></i>
+            <h3>Lista de Documentos</h3>
+            <i class='bx bx-filter'></i>
+            <i class='bx bx-search'></i>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Propietario</th>
+                    <th>Modificación</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <ng-container>
+                        <td>TF Redes y protocolos</td>
+                        <td>pdf</td>
+                        <td class="owner">
+                            <img src="IMG/Index/profile-1.jpg">
+                            <p>yo</p>
+                        </td>
+                        <td>21 jun 2024</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-doc" type="button" id="dropdownMenuButton" (click)="toggleDropdown($event)">
+                                    <i class="bx bx-dots-horizontal-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu" [class.show]="dropdownOpen" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Ver</a>
+                                    <a class="dropdown-item" href="#">Editar</a>
+                                    <a class="dropdown-item" href="#">Compartir</a>
+                                    <a class="dropdown-item" href="#">Organizar</a>
+                                    <a class="dropdown-item" href="#">Crear una copia</a>
+                                    <a class="dropdown-item" href="#">Detalles</a>
+                                    <a class="dropdown-item" href="#">Eliminar</a>
+                                </div>
+                            </div>
+                        </td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

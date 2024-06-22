@@ -1,0 +1,26 @@
+@import url('../../../../../app.component.css');
+
+.owner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.owner img {
+    margin-right: 8px;
+    /* Ajusta el espacio entre la imagen y el texto */
+}
+
+.owner p {
+    margin: 0;
+    font-size: 14px;
+    /* Ajusta el tamaño del texto si es necesario */
+}
+
+.bottom-data .List_table table td img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+

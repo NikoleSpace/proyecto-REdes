@@ -1,0 +1,22 @@
+@import url('../../../app.component.css');
+
+
+.bottom-data .List_tasks table tr td .status {
+    font-size: 10px;
+    padding: 6px 16px;
+    color: var(--light);
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.bottom-data .List_tasks table tr td .status.completed {
+    background: var(--success);
+}
+
+.bottom-data .List_tasks table tr td .status.pending {
+    background: var(--warning);
+}
+
+.bottom-data .List_tasks table tr td .status.incompleted {
+    background: var(--danger);
+}

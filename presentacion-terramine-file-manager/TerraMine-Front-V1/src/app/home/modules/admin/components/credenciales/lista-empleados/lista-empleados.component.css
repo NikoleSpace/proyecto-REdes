@@ -1,0 +1,56 @@
+
+.List_table {
+    position: relative;
+}
+
+.table-container {
+    overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
+}
+
+.table-button-container {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Asegura que el dropdown esté encima de la tabla */
+    min-width: 120px;
+    top: 0; /* Ajusta la posición vertical del dropdown */
+    right: calc(100% + 10px); /* Coloca el dropdown a la derecha del botón con un espacio de 10px */
+}
+
+.dropdown-menu.show {
+    display: block; /* Muestra el dropdown cuando la clase 'show' está presente */
+}
+
+
+
+.dropdown-item {
+    display: block;
+    padding: 8px 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+.bottom-data  table tr td .status{
+    font-size: 15px;
+    padding: 6px 16px;
+    color: var(--light);
+    border-radius: 20px;
+    font-weight: 700;
+}
+.bottom-data  table tr td .status.activo{
+    background: var(--success);
+}
+.status .inactive{
+    background-color: var(--danger);
+}

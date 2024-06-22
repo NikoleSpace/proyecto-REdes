@@ -1,0 +1,13 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Espacio entre las columnas */
+}
+
+.col {
+    flex: 1 1 calc(33.33% - 20px);
+    /* Ancho de cada columna */
+    margin-bottom: 20px;
+    /* Espacio inferior entre las filas */
+}

@@ -1,0 +1,14 @@
+<!-- signin.component.html -->
+
+<div class="container">
+    <div class="form-container sign-in">
+        <form (ngSubmit)="login(email.value, password.value)">
+            <h1>Iniciar Sesión</h1>
+            <input type="email" placeholder="Correo Electrónico" #email required>
+            <input type="password" placeholder="Contraseña" #password required>
+            <a href="#">¿Olvidaste tu contraseña?</a>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+    <app-toogle></app-toogle> <!-- Asumo que esto es parte de tu interfaz -->
+</div>

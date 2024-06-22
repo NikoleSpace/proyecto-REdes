@@ -1,0 +1,103 @@
+/* Estilos generales del modal */
+
+
+.modal-content .perfil-content{
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+
+.information {
+    text-align: center;
+}
+
+.perfil-header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    margin-right: 20px;
+}
+
+.initial-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    font-size: 50px;
+    color: #fff;
+}
+
+.user-details {
+    text-align: left;
+}
+
+.perfil-body{
+    text-align: left;
+}
+
+.bottom-data {
+    margin-top: 20px;
+}
+
+.List_table {
+    width: 100%;
+}
+
+.List_table .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.List_table .header h3 {
+    margin: 0;
+}
+
+.List_table .header i {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+.edit-actions {
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+
