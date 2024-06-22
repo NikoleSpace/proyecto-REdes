@@ -5,6 +5,11 @@ const bcrypt = require('bcrypt');
 exports.createUser = async (req, res) => {
   try {
     const { name, email, password, phone, position, area_id, branch_id, role_id, credential_expiry_date } = req.body;
+    // Verificar si el area_id es válido
+    const area = await Area.findById(area_id);
+    if (!area) {
+      return res.status(400).json({ error: 'Invalid area ID: Area does not exist' });
+    }
     // Encriptamos la contraseña antes de guardarla
     const saltRounds = 10; 
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -25,13 +30,8 @@ exports.createUser = async (req, res) => {
     await user.save();
 
     // Añadimos el usuario a la lista de empleados del área correspondiente
-    if (area_id) {
-      const area = await Area.findById(area_id);
-      if (area) {
-        area.employees.push(user._id);
-        await area.save();
-      }
-    }
+    area.employees.push(user._id);
+    await area.save();
     
     res.status(201).json(user);
   } catch (error) {
