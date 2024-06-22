@@ -27,14 +27,17 @@ const roleRoutes = require('./routes/roleRoutes');
 const permissionsRoutes = require('./routes/permissionRoutes');
 const areaRoutes = require('./routes/areaRoutes');
 const branchRoutes = require('./routes/branchRoutes');
+const authRoutes = require('./routes/authRoutes');
+const taskRoutes = require('./routes/taskRoutes');
 
 app.use('/documents', documentRoutes);
 app.use('/users', userRoutes);
 app.use('/roles', roleRoutes);
 app.use('/permissions', permissionsRoutes);
 app.use('/areas', areaRoutes);
-app.use('/branches',branchRoutes )
-// Add more route usages here
+app.use('/branches',branchRoutes );
+app.use('/task', taskRoutes);
+app.use('/auth', authRoutes)
 
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
