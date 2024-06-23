@@ -15,6 +15,7 @@ const UserSchema = new Schema({
     roles: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Rol' }],
     fecha_creacion: { type: Date, default: Date.now },
     fecha_finalizacion: { type: Date },
+    fecha_modificacion:{ type: Date, default: Date.now },
     ultimo_acceso: { type: Date },
     estado: { type: String, enum: ['activo', 'inactivo'], default: 'activo' },
     foto: { data: Buffer, contentType: String } // Campo para almacenar la foto

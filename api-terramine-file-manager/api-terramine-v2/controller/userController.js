@@ -40,6 +40,7 @@ exports.updateUser = async (req, res) => {
         user.email = email;
         user.telefono = telefono;
         user.cargo = cargo;
+        user.fecha_modificacion = Date.now();
         user.sucursal_id = sucursal_id;
         user.area_id = area_id;
         user.roles = roles;
